@@ -1,20 +1,14 @@
-@Login @Regression
+@Login @Smoke
 Feature: Inicio de Sesion 
 
-  @NoCandidate @Smoke
-  Scenario Outline: Iniciar sesión exitosamente con el usuario <usuario>
-    Given el cliente se encuentra en la página de login
-    When el cliente se loguea con el usuario de <usuario>
-    Then el usuario visualiza todos los proyectos en la pantalla de Dashboard 
-
-    Examples:
-      | usuario     |
-      | openia      |
-      | automation  |
-      | credentials |
-
+  @NoCandidate
+  Scenario: Iniciar sesion exitosamente con el usuario
+    Given el cliente se encuentra en la pagina de login
+    When el cliente ingresa al sistema con el usuario <usuario> y contrasenia <contrasenia>
+    Then el usuario visualiza todos los proyectos en la pantalla de Dashboard
+    Then no 4354 tested
+  
   @Automated
-  Scenario: Iniciar sesión con usuario Deshabilitado
-    Given el cliente se encuentra en la página de login
-    When el cliente está logueado con el usuario de deshabilitado
-    Then el cliente visualiza el error con la cuenta deshabilitada Invalid username or password.
+  Scenario: Iniciar sesion con usuario erroneo.
+    Given el cliente se encuentra en la pagina de login
+    When el cliente ingresa al sistema con el usuario aaa y contrasenio
