@@ -1,7 +1,7 @@
 @Login @Smoke
 Feature: Inicio de Sesion 
 
-  @NoCandidate
+  @ToBeAutomated
   Scenario: Iniciar sesion exitosamente con el usuario
     Given el cliente se encuentra en la pagina de login
     When el cliente ingresa al sistema con el usuario <usuario> y contrasenia <contrasenia>
